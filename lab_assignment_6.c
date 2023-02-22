@@ -3,24 +3,24 @@
 
 int search(int numbers[], int low, int high, int value) 
 {
-	int mid = ((high - low) / 2) + low;
+	int mid = ((high - low) / 2) + low; //finds the middle index of the array
 
-	if(high == low)
+	if(high == low) //if the search is complete and the value is not found
 	{
-		return - 1;
+		return - 1; 
 	}
 
-	if(numbers[mid] == value)
+	if(numbers[mid] == value) //if the value is found
 	{
 		return mid;
 	}
-	else if (value > numbers[mid])
+	else if (value > numbers[mid]) //if the value is in the higher half of the sorted array
 	{
-		return search(numbers, mid + 1, high, value);
+		return search(numbers, mid + 1, high, value); //search again and change the low
 	}
 	else
 	{
-		return search(numbers, low, mid - 1, value);
+		return search(numbers, low, mid - 1, value); //search again and change the high
 	}
 }
 
